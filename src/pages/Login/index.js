@@ -54,6 +54,8 @@ export default class Login extends Component {
   signIn = async () => {
     const { email, password } = this.state;
 
+    const { navigation } = this.props;
+
     // if (email === undefined || email.length === 0 || password === undefined || password.length === 0) {
     //   this.setState({ loading: false, errorMessage: 'Preencha todas as informações' });
     //   return false;
@@ -68,10 +70,10 @@ export default class Login extends Component {
       // const resetAction = NavigationActions.reset({
       //   index: 0,
       //   actions: [
-          NavigationActions.navigate({ routeName: 'Main' }),
+        navigation.navigate({ routeName: 'Main' });
         // ],
       // });
-      this.props.navigation.dispatch(resetAction);
+      // this.props.navigation.dispatch(resetAction);
     } catch (err) {
       console.tron.log(err)
       this.setState({ loading: false, errorMessage: 'Erro na autenticação, verifique os dados' });
