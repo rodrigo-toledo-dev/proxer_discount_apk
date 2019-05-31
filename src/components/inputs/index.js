@@ -1,0 +1,1 @@
+export { GeneralInputView, GeneralTextInput } from './styles';

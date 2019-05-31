@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import {
   Text, Image, StyleSheet, Dimensions, ImageBackground, StatusBar, Button
 } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+
+import { GeneralBackground }  from '~/components/GeneralBackground';
+import { GeneralInputView, GeneralTextInput }  from '~/components/inputs';
 
 const styles = StyleSheet.create({
   container: {
@@ -82,14 +84,8 @@ export default class Login extends Component {
 
   render() {
     return (
-      <ImageBackground
-        source={{
-          uri: 'https://s3-sa-east-1.amazonaws.com/rocketseat-cdn/background.png',
-        }}
-        style={styles.container}
-        resizeMode="cover"
-      >
-        <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
+      <GeneralBackground>
+        <StatusBar barStyle="light-content" hidden={true} />
         <Image
           source={{
             uri: 'https://s3-sa-east-1.amazonaws.com/rocketseat-cdn/rocketseat_logo.png',
@@ -97,8 +93,14 @@ export default class Login extends Component {
           style={styles.logo}
           resizeMode="contain"
         />
+        <GeneralInputView>
+          <GeneralTextInput />
+        </GeneralInputView>
+        <GeneralInputView>
+          <GeneralTextInput />
+        </GeneralInputView>
         <Button title="I'm done, sign me out" onPress={this.signIn} />
-      </ImageBackground>
+      </GeneralBackground>
     )
   }
 };
