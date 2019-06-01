@@ -5,8 +5,9 @@ import {
   Text, Image, StyleSheet, Dimensions, ImageBackground, StatusBar, Button
 } from 'react-native';
 
-import { GeneralBackground }  from '~/components/GeneralBackground';
-import { GeneralInputView, GeneralTextInput }  from '~/components/inputs';
+import GeneralBackground from '~/components/GeneralBackground';
+import Logo from '~/components/Logo';
+import { GeneralInputView, GeneralTextInput } from '~/components/inputs';
 
 const styles = StyleSheet.create({
   container: {
@@ -86,18 +87,12 @@ export default class Login extends Component {
     return (
       <GeneralBackground>
         <StatusBar barStyle="light-content" hidden={true} />
-        <Image
-          source={{
-            uri: 'https://s3-sa-east-1.amazonaws.com/rocketseat-cdn/rocketseat_logo.png',
-          }}
-          style={styles.logo}
-          resizeMode="contain"
-        />
+        <Logo />
         <GeneralInputView>
-          <GeneralTextInput />
+          <GeneralTextInput placeholder='Preencher com seu login' />
         </GeneralInputView>
         <GeneralInputView>
-          <GeneralTextInput />
+          <GeneralTextInput placeholder='Preencher com sua senha' secureTextEntry={true} />
         </GeneralInputView>
         <Button title="I'm done, sign me out" onPress={this.signIn} />
       </GeneralBackground>
