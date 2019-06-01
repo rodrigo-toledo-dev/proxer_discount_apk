@@ -1,42 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  Text, Image, StyleSheet, Dimensions, ImageBackground, StatusBar, Button
-} from 'react-native';
+import { StatusBar, Button } from 'react-native';
 
 import GeneralBackground from '~/components/GeneralBackground';
 import Logo from '~/components/Logo';
 import { GeneralInputView, GeneralTextInput } from '~/components/inputs';
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    flex: 1,
-    paddingHorizontal: 20,
-  },
-  fileName: {
-    fontWeight: 'bold',
-    marginTop: 5,
-  },
-  instructions: {
-    color: '#DDD',
-    fontSize: 14,
-    marginTop: 20,
-    textAlign: 'center',
-  },
-  logo: {
-    height: Dimensions.get('window').height * 0.11,
-    marginVertical: Dimensions.get('window').height * 0.11,
-    width: Dimensions.get('window').height * 0.11 * (1950 / 662),
-  },
-  welcome: {
-    color: '#fff',
-    fontSize: 22,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-});
 
 export default class Login extends Component {
   static navigationOptions = {
@@ -50,8 +19,8 @@ export default class Login extends Component {
   };
 
   state = {
-    email: 'rodrigo@rtoledo.inf.br',
-    password: 'asdqwe123',
+    email: '',
+    password: '',
   };
 
   signIn = async () => {
@@ -70,12 +39,7 @@ export default class Login extends Component {
       // await this.checkUserExists(email, password);
       // await this.saveUser(email);
 
-      // const resetAction = NavigationActions.reset({
-      //   index: 0,
-      //   actions: [
-        navigation.navigate({ routeName: 'Main' });
-        // ],
-      // });
+      navigation.navigate({ routeName: 'Main' });
       // this.props.navigation.dispatch(resetAction);
     } catch (err) {
       console.tron.log(err)

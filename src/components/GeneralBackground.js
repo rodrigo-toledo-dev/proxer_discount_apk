@@ -1,8 +1,7 @@
 import styled from 'styled-components/native';
 import { StyleSheet, ImageBackground } from 'react-native';
 
-
-export const GeneralBackground = styled.ImageBackground.attrs({
+const GeneralBackground = styled.ImageBackground.attrs({
     source: require('~/img/background.png'),
     resizeMode: 'cover',
   })`
@@ -10,3 +9,5 @@ export const GeneralBackground = styled.ImageBackground.attrs({
   align-items: center;
   padding-bottom: 20px;
 `;
+
+export default GeneralBackground;
